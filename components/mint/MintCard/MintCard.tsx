@@ -149,7 +149,7 @@ const MintCard = () => {
                                             )
                                         }
                                         // If the function fails, we can do something here.
-                                        onError={(error) => toast.error(error?.message)}
+                                        onError={(error) => toast.error(error?.reason)}
                                         accentColor="#9e53fa"
                                         colorMode="dark"
                                     >
