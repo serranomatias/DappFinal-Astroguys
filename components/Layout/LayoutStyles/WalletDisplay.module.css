@@ -1,0 +1,41 @@
+.container{
+    margin: 20px 0;
+    width: calc(100% - 130px);
+    margin-left:130px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.bar{    
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    padding-left: 0;
+    height: 90px;
+    width: 70%;
+    background: #13161B;
+    border-radius: 50px;
+    box-shadow: 1px 1px 5px rgba(148, 55, 255, 0.1)
+                -1px -1px 5px rgba(148, 55, 255, 0.1);
+}
+
+.walletInfo{
+    width: calc(100% - 180px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.info{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.info span{
+    color: #B289F5;
+}

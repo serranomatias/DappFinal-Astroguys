@@ -1,0 +1,98 @@
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.card{
+    height: 710px;
+    width: 475px;
+    background: #13161B;
+    box-shadow: 0px 4px 22px -1px rgba(148, 55, 255, 0.16);
+    border-radius: 50px;
+    border: 2px solid rgba(148, 55, 255, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 28px;
+    padding: 20px;
+}
+
+.cardTittle {
+    margin: 0px 0;
+    margin-bottom: 20px;
+}
+
+.cardTittle p {
+    letter-spacing: 26px;
+    text-indent: 26px;
+    margin: 0;
+    font-size: 16px;
+}
+.cardTittle h2 {
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: 400;
+    margin: 0 0 40px;
+    color: #FFFFFF;
+}
+
+.downSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.mintedContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.priceContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.revealImg {
+    height: 300px;
+    width: 300px;
+    position: relative;
+}
+.imgContract {
+    height: 320px;
+    width: 350px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.quantityControlButton {
+    width: 40px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 19px;
+    font-weight: 800;
+    border-radius: 20%;
+}

@@ -1,0 +1,128 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 130px;
+    padding: 20px 0;
+    top: 0;
+    
+    background-color: #13161B;
+
+}
+
+.routeContainer{
+}
+
+.walletContainer{
+
+}
+
+.iconContainer{
+    position: relative;
+    width: 90px;
+
+}
+
+.iconContainerMouseDown{
+    position: relative;
+    width: 90px;
+    top: 1px;
+}
+
+.icon{
+    background: rgba(244, 245, 251, 0.1);
+    border-radius: 50%;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin: 20px 0;
+    transition: all 0.26s;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconLogo {
+    background: rgba(244, 245, 251, 0.1);
+    border-radius: 50%;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin: 20px 0;
+    transition: all 0.26s;
+    cursor: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .icon:hover{
+    transition: all 0.2s;
+    border-radius: 35%;
+} */
+
+.focus{
+    position: absolute;
+    z-index: 10;
+    width: 90px;
+    height: 90px;
+    border-radius: 30%;
+    transform: translateY(-50%);
+    top: 50%;
+    background-color: #B6B6B6;
+    opacity: 0;
+    transition: all 0.15s;
+}
+
+/* .iconContainer:hover .focus{
+    transition: all 0.2s;
+    opacity: 1;
+} */
+
+.focusCurrent{
+    position: absolute;
+    z-index: 10;
+    width: 90px;
+    height: 90px;
+    border-radius: 25%;
+    transform: translateY(-50%);
+    top: 50%;
+    background-color: #B6B6B6;
+    transition: all 0.3s;
+}
+
+.iconCurrent{
+    background: linear-gradient(180deg, #9233FF 0%, #A35EF9 100%);
+    border-radius: 35%;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin: 20px 0;
+    transition: all 0.26s;
+    background-color: #4807EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wallet{
+    cursor: pointer;
+    transition: all 0.16s;
+}
+
+.wallet:hover{
+    transition: all 0.16s;
+    transform: scale(1.1);
+}
+.soon {
+    color: rgba(244, 245, 251, 0.1);
+}
+
+.icon:hover {
+    color: rgba(244, 245, 251, 0.2);
+    user-select: none;
+}
