@@ -72,9 +72,12 @@ const MintCard = () => {
                                 <b>{claimedSupply?.toNumber()}</b>
                                 {" / "}
                                 {
+                                    "100"
+                                }
+                                {/* {
                                     // Add unclaimed and claimed supply to get the total supply
                                     claimedSupply?.toNumber() + unclaimedSupply?.toNumber()
-                                }
+                                } */}
                             </p>
                         ) : (
                             // Show loading state if we're still loading the supply
