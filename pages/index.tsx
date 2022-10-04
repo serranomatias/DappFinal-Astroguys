@@ -5,12 +5,16 @@ import MintCard from '../components/mint/MintCard/MintCard'
 import style from '../styles/pages/mint.module.css'
 import InfoCard from '../components/mint/infoCard/InfoCard'
 import { useCallback } from "react";
-
+import Head from 'next/head'
 
 const Home: NextPage = () => {
 
   return (
     <>
+            <Head>
+        <title>ASTROGUYS MINT</title>
+        <link rel="icon" href="/favicon.ico" />
+       </Head>
       <div className={style.wrapperContainer}>
         <div className={style.cardsContainer}>
           <MintCard />
