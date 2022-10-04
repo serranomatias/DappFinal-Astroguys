@@ -19,12 +19,12 @@ const InfoCard = (props: Props) => {
         </div>
         <div className={style.downSection}>
             <div className={style.mintedContainer}>
-            <p>SUPPLY OCT 3</p>
+            <p>SUPPLY OCT 4</p>
             <p><b>1 NFT</b></p>
             </div>
             <div className={style.priceContainer}>
             <p>Price</p>
-            <p><b>25</b> MATIC</p>
+            <p><b>28</b> MATIC</p>
             </div>
         </div>
     </div>
