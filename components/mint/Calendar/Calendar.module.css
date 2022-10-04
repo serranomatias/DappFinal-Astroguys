@@ -34,7 +34,7 @@
   opacity: 0.3;
 }
 
-.calendarItem:nth-child(1) {
+.calendarItem:nth-child(2) {
   background: linear-gradient(180deg, #9233FF 0%, #A35EF9 100%);
   opacity: 1;
 }
