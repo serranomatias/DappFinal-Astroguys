@@ -9,7 +9,9 @@ import {
     useUnclaimedNFTSupply,
     useActiveClaimCondition,
     Web3Button,
-    useContract
+    useContract,
+    useNFT,
+    ThirdwebNftMedia,
 } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import toast, { Toaster } from 'react-hot-toast';
@@ -18,7 +20,7 @@ const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
 
 const MintCard = () => {
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
-
+    const { data: nft, isLoading } = useNFT(nftDrop, 1);
     // The amount the user claims
     const [quantity, setQuantity] = useState(1); // default to 1
 
@@ -32,7 +34,7 @@ const MintCard = () => {
     const { data: activeClaimCondition } = useActiveClaimCondition(nftDrop);
 
     // Check if there's NFTs left on the active claim phase
-    const isNotReady = 
+    const isNotReady =
         activeClaimCondition &&
         parseInt(activeClaimCondition?.availableSupply) === 0;
 
@@ -52,6 +54,10 @@ const MintCard = () => {
     if (!nftDrop || !contractMetadata) {
         return <div className={style.cardContainer}>Loading...</div>;
     }
+    // Get your NFT Collection using it's contract address
+
+    // Load (and cache) the metadata for the NFT with token ID 0
+
     return (
         <div className={style.cardContainer}>
             <Toaster />
@@ -87,14 +93,14 @@ const MintCard = () => {
                     <div className={style.priceContainer}>
                         <p>Price</p>
                         {activeClaimCondition?.price.eq(0)
-                                                ? " (Not yet)"
-                                                : activeClaimCondition?.currencyMetadata.displayValue
-                                                    ? ` ${formatUnits(
-                                                        priceToMint,
-                                                        activeClaimCondition.currencyMetadata.decimals
-                                                    )} ${activeClaimCondition?.currencyMetadata.symbol}`
-                                                    : ""
-                                            }
+                            ? " (Not yet)"
+                            : activeClaimCondition?.currencyMetadata.displayValue
+                                ? ` ${formatUnits(
+                                    priceToMint,
+                                    activeClaimCondition.currencyMetadata.decimals
+                                )} ${activeClaimCondition?.currencyMetadata.symbol}`
+                                : ""
+                        }
                     </div>
                 </div>
                 <div>
@@ -143,25 +149,40 @@ const MintCard = () => {
                                         }
                                         // If the function is successful, we can do something here.
                                         onSuccess={(result) =>
-                                            toast.success(
-                                                `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
-                                                }!`
-                                            )
+                                            {toast((t) => (
+                                                // `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
+                                                // }!`
+                                                <div>
+                                                    {!isLoading && nft ? (
+                                                        <div className={style.succesfulMint}>
+                                                            <h3>Congratulations!</h3>
+                                                            <span>Successfully minted!🚀</span>
+                                                            <span>{nft.metadata.name}<br></br></span>
+                                                            <a href="https://opensea.io/collection/astroguysproject" target="_blank" rel="noreferrer"><button>
+                                                                See on OpenSea
+                                                            </button></a>
+                                                            <ThirdwebNftMedia metadata={nft.metadata} width={"300px"} />
+                                                        </div>
+                                                    ) : (
+                                                        <p>Loading...</p>
+                                                    )}
+                        
+                                                </div>
+                                            ))}
                                         }
                                         // If the function fails, we can do something here.
                                         onError={(error) => toast.error(error?.message)}
                                         accentColor="#9e53fa"
                                         colorMode="dark"
                                     >
-                                        {`Mint${quantity > 1 ? ` ${quantity}` : ""}${
-                                            activeClaimCondition?.price.eq(0)
-                                                ? " (Free)"
-                                                : activeClaimCondition?.currencyMetadata.displayValue
-                                                    ? ` (${formatUnits(
-                                                        priceToMint,
-                                                        activeClaimCondition.currencyMetadata.decimals
-                                                    )} ${activeClaimCondition?.currencyMetadata.symbol})`
-                                                    : ""
+                                        {`Mint${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
+                                            ? " (Free)"
+                                            : activeClaimCondition?.currencyMetadata.displayValue
+                                                ? ` (${formatUnits(
+                                                    priceToMint,
+                                                    activeClaimCondition.currencyMetadata.decimals
+                                                )} ${activeClaimCondition?.currencyMetadata.symbol})`
+                                                : ""
                                             }`}
                                     </Web3Button>
                                 </div>
@@ -172,7 +193,7 @@ const MintCard = () => {
             </div>
         </div>
     );
-           
+
 };
 
 export default MintCard
