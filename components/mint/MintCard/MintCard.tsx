@@ -14,7 +14,7 @@ import {
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import toast, { Toaster } from 'react-hot-toast';
 
-const myNftDropContractAddress = "0x6287CA8488279fDc19DDF162B78f125fECeA2410";
+const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
 
 const MintCard = () => {
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
