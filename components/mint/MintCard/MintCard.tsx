@@ -157,15 +157,7 @@ const MintCard = () => {
                                 accentColor="#9e53fa"
                                 colorMode="dark"
                             >
-                                {`MINT${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
-                                    ? " (Free)"
-                                    : activeClaimCondition?.currencyMetadata.displayValue
-                                        ? ` (${parseInt(formatUnits(
-                                            priceToMint,
-                                            activeClaimCondition.currencyMetadata.decimals
-                                        ))} ${activeClaimCondition?.currencyMetadata.symbol})`
-                                        : ""
-                                    }`}
+                                {`MINT NOT ACTIVE YET`}
                             </Web3Button>
                         </div>
                         ) : (
