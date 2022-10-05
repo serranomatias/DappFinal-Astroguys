@@ -43,8 +43,7 @@ const MintCard = () => {
 
     // Check price
     const price = parseUnits(
-        activeClaimCondition?.currencyMetadata.displayValue || "0",
-        activeClaimCondition?.currencyMetadata.decimals
+        activeClaimCondition?.currencyMetadata.displayValue || "0"
     );
 
     // Multiply depending on quantity
@@ -95,10 +94,10 @@ const MintCard = () => {
                         {activeClaimCondition?.price.eq(0)
                             ? " (Not yet)"
                             : activeClaimCondition?.currencyMetadata.displayValue
-                                ? ` ${formatUnits(
+                                ? ` ${parseInt(formatUnits(
                                     priceToMint,
                                     activeClaimCondition.currencyMetadata.decimals
-                                )} ${activeClaimCondition?.currencyMetadata.symbol}`
+                                ))} ${activeClaimCondition?.currencyMetadata.symbol}`
                                 : ""
                         }
                     </div>
@@ -107,9 +106,26 @@ const MintCard = () => {
                     {
                         // Sold out or show the claim button
                         isSoldOut ? (
-                            <div>
-                                <h2>Sold Out</h2>
-                            </div>
+                        <div className={style.mintContainer}>
+                            <Web3Button
+                                contractAddress={myNftDropContractAddress}
+                                action={async () => {toast.error("Mint is not active yet")}}
+                                // If the function fails, we can do something here.
+                                onError={(error) => toast.error(error?.message)}
+                                accentColor="#9e53fa"
+                                colorMode="dark"
+                            >
+                                {`MINT${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
+                                    ? " (Free)"
+                                    : activeClaimCondition?.currencyMetadata.displayValue
+                                        ? ` (${parseInt(formatUnits(
+                                            priceToMint,
+                                            activeClaimCondition.currencyMetadata.decimals
+                                        ))} ${activeClaimCondition?.currencyMetadata.symbol})`
+                                        : ""
+                                    }`}
+                            </Web3Button>
+                        </div>
                         ) : isNotReady ? (
                             <div>
                                 <h2>Not ready to be minted yet</h2>
