@@ -127,9 +127,26 @@ const MintCard = () => {
                             </Web3Button>
                         </div>
                         ) : isNotReady ? (
-                            <div>
-                                <h2>Not ready to be minted yet</h2>
-                            </div>
+                            <div className={style.mintContainer}>
+                            <Web3Button
+                                contractAddress={myNftDropContractAddress}
+                                action={async () => {toast.error("Mint is not active yet")}}
+                                // If the function fails, we can do something here.
+                                onError={(error) => toast.error(error?.message)}
+                                accentColor="#9e53fa"
+                                colorMode="dark"
+                            >
+                                {`MINT${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
+                                    ? " (Free)"
+                                    : activeClaimCondition?.currencyMetadata.displayValue
+                                        ? ` (${parseInt(formatUnits(
+                                            priceToMint,
+                                            activeClaimCondition.currencyMetadata.decimals
+                                        ))} ${activeClaimCondition?.currencyMetadata.symbol})`
+                                        : ""
+                                    }`}
+                            </Web3Button>
+                        </div>
                         ) : (
                             <>
                                 <div className={style.quantityContainer}>
