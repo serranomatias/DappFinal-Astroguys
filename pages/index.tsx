@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-            <Head>
+        <Head>
         <title>ASTROGUYS DAPP</title>
         <link rel="icon" href="/favicon.ico" />
        </Head>

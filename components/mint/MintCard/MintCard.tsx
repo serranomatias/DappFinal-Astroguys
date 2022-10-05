@@ -15,12 +15,40 @@ import {
 } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import toast, { Toaster } from 'react-hot-toast';
-
+import countDown from '../../../utils/CountdownTimer'
 const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
+type DateType = {
+    days: string,
+    hours: string,
+    minutes: string,
+    seconds: string,
+}
 
 const MintCard = () => {
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
     const { data: nft, isLoading } = useNFT(nftDrop, 2);
+
+    const [time, setTime] = useState<Boolean>(false)
+
+    const target = new Date("Oct 5, 2022 21:00:00 UTC").getTime()
+
+    useEffect(() => {
+
+        const interval = setInterval(() => {
+
+            const current: DateType = countDown(target)
+            
+            if(current?.days === '0' && current?.hours === '0' && current?.minutes === '0' && current.minutes === '0' && current.seconds === '0'){
+                setTime(true);
+            }
+           
+        }, 1000);
+
+        return () => clearInterval(interval);
+
+    }, [])
+
+
     // The amount the user claims
     const [quantity, setQuantity] = useState(1); // default to 1
 
@@ -36,8 +64,8 @@ const MintCard = () => {
     // Check if there's NFTs left on the active claim phase
     const isNotReady =
         activeClaimCondition &&
-        parseInt(activeClaimCondition?.availableSupply) === 0;
-
+        time;
+        // parseInt(activeClaimCondition?.availableSupply) === 0;
     // Check if there's any NFTs left
     const isSoldOut = unclaimedSupply?.toNumber() === 0;
 
@@ -56,6 +84,7 @@ const MintCard = () => {
     // Get your NFT Collection using it's contract address
 
     // Load (and cache) the metadata for the NFT with token ID 0
+
 
     return (
         <div className={style.cardContainer}>
@@ -115,18 +144,10 @@ const MintCard = () => {
                                 accentColor="#9e53fa"
                                 colorMode="dark"
                             >
-                                {`MINT${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
-                                    ? " (Free)"
-                                    : activeClaimCondition?.currencyMetadata.displayValue
-                                        ? ` (${parseInt(formatUnits(
-                                            priceToMint,
-                                            activeClaimCondition.currencyMetadata.decimals
-                                        ))} ${activeClaimCondition?.currencyMetadata.symbol})`
-                                        : ""
-                                    }`}
+                                {`SOLD OUT`}
                             </Web3Button>
                         </div>
-                        ) : isNotReady ? (
+                        ) : !time ? (
                             <div className={style.mintContainer}>
                             <Web3Button
                                 contractAddress={myNftDropContractAddress}
