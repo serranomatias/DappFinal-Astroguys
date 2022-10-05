@@ -52,7 +52,7 @@ const MintCard = () => {
 
     // Loading state while we fetch the metadata
     if (!nftDrop || !contractMetadata) {
-        return <div className={style.cardContainer}>Loading...</div>;
+        return <div className={style.cardContainer}></div>;
     }
     // Get your NFT Collection using it's contract address
 

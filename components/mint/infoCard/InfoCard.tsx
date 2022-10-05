@@ -1,9 +1,26 @@
 import React from 'react'
 import Countdown from '../Countdown/Countdown'
 import style from './InfoCard.module.css'
+import {
+    useClaimedNFTSupply,
+    useContractMetadata,
+    useUnclaimedNFTSupply,
+    useActiveClaimCondition,
+    Web3Button,
+    useContract,
+    useNFT,
+    ThirdwebNftMedia,
+} from "@thirdweb-dev/react";
 type Props = {}
 
+const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
+
 const InfoCard = (props: Props) => {
+    const { contract: nftDrop } = useContract(myNftDropContractAddress);
+    const { data: contractMetadata } = useContractMetadata(nftDrop);
+    if (!nftDrop || !contractMetadata) {
+        return <div className={style.spinner}></div>;
+    }
   return (
     <div className={style.cardContainer}>
     <div className={style.card}>
