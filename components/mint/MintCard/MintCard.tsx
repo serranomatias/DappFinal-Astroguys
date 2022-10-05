@@ -20,7 +20,7 @@ const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
 
 const MintCard = () => {
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
-    const { data: nft, isLoading } = useNFT(nftDrop, 1);
+    const { data: nft, isLoading } = useNFT(nftDrop, 2);
     // The amount the user claims
     const [quantity, setQuantity] = useState(1); // default to 1
 
