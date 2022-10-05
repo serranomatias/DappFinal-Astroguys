@@ -211,10 +211,10 @@ const MintCard = () => {
                                         {`Mint${quantity > 1 ? ` ${quantity}` : ""}${activeClaimCondition?.price.eq(0)
                                             ? " (Free)"
                                             : activeClaimCondition?.currencyMetadata.displayValue
-                                                ? ` (${formatUnits(
+                                                ? ` (${parseInt(formatUnits(
                                                     priceToMint,
                                                     activeClaimCondition.currencyMetadata.decimals
-                                                )} ${activeClaimCondition?.currencyMetadata.symbol})`
+                                                ))} ${activeClaimCondition?.currencyMetadata.symbol})`
                                                 : ""
                                             }`}
                                     </Web3Button>
