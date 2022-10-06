@@ -141,7 +141,7 @@ const MintCard = () => {
                                 action={async () => {toast.error("Mint is not active yet")}}
                                 // If the function fails, we can do something here.
                                 onError={(error) => toast.error(error?.message)}
-                                accentColor="#9e53fa"
+                                accentColor="#240c43"
                                 colorMode="dark"
                             >
                                 {`SOLD OUT`}
