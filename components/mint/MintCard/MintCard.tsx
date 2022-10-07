@@ -26,7 +26,7 @@ type DateType = {
 
 const MintCard = () => {
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
-    const { data: nft, isLoading } = useNFT(nftDrop, 3);
+    const { data: nft, isLoading } = useNFT(nftDrop, 4);
 
     const [time, setTime] = useState<Boolean>(false)
 
