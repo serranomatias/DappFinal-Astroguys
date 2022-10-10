@@ -149,45 +149,8 @@ const MintCard = () => {
                                 onError={(error: any) => toast.error(error?.message)}
                                 accentColor="#240c43"
                                 colorMode="dark"
-                                onSuccess={() =>
-                                    {toast((t) => (
-                                        // `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
-                                        // }!`
-                                        <div>
-                                            {!isReadingNfts && nfts ? (
-                                                <div className={style.succesfulMint}>
-                                                    <h3>Congratulations!</h3>
-                                                    <span>Successfully minted!🚀</span>
-                                                    {/* <span>{nfts.metadata.name}<br></br></span> */}
-                                                    <a href="https://opensea.io/collection/astroguysproject" target="_blank" rel="noreferrer"><button>
-                                                        See on OpenSea
-                                                    </button></a>
-                                                    {nfts
-                                                    .filter(
-                                                          (nft) =>
-                                                            nft.owner === address
-                                                        )
-                                                        .map((nft) => (
-                                                        <div key={nft.metadata.id.toString()}>
-                                                        <h1>{nft.metadata.name}</h1>
-                                                         <ThirdwebNftMedia
-                                                           key={nft.owner}
-                                                           metadata={nft.metadata}
-                                                           height={"200px"}
-                                                         />
-                                                        </div>
-                                                        ))}
-                                                    {/* <ThirdwebNftMedia metadata={nft.metadata} width={"300px"} /> */}
-                                                </div>
-                                            ) : (
-                                                <p>Loading...</p>
-                                            )}
-                
-                                        </div>
-                                    ))}
-                                }
-                            >
-                                {`SOLD OUT`}
+                                >
+                                     {`MINT NOT ACTIVE YET`}
                             </Web3Button>
                         </div>
                         ) : !time ? (
@@ -242,16 +205,31 @@ const MintCard = () => {
                                                 // `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
                                                 // }!`
                                                 <div>
-                                                    {!isLoading && nft ? (
-                                                        <div className={style.succesfulMint}>
-                                                            <h3>Congratulations!</h3>
-                                                            <span>Successfully minted!🚀</span>
-                                                            <span>{nft.metadata.name}<br></br></span>
-                                                            <a href="https://opensea.io/collection/astroguysproject" target="_blank" rel="noreferrer"><button>
-                                                                See on OpenSea
-                                                            </button></a>
-                                                            <ThirdwebNftMedia metadata={nft.metadata} width={"300px"} />
-                                                        </div>
+                                                {!isReadingNfts && nfts ? (
+                                                    <div className={style.succesfulMint}>
+                                                        <h3>Congratulations!</h3>
+                                                        <span>Successfully minted!🚀</span>
+                                                        {/* <span>{nfts.metadata.name}<br></br></span> */}
+                                                        <a href="https://opensea.io/collection/astroguysproject" target="_blank" rel="noreferrer"><button>
+                                                            See on OpenSea
+                                                        </button></a>
+                                                        {nfts
+                                                        .filter(
+                                                              (nft) =>
+                                                                nft.owner === address
+                                                            )
+                                                            .map((nft) => (
+                                                            <div key={nft.metadata.id.toString()}>
+                                                            <h1>{nft.metadata.name}</h1>
+                                                             <ThirdwebNftMedia
+                                                               key={nft.owner}
+                                                               metadata={nft.metadata}
+                                                               height={"200px"}
+                                                             />
+                                                            </div>
+                                                            ))}
+                                                        {/* <ThirdwebNftMedia metadata={nft.metadata} width={"300px"} /> */}
+                                                    </div>
                                                     ) : (
                                                         <p>Loading...</p>
                                                     )}
