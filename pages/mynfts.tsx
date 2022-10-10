@@ -22,9 +22,9 @@ const handlePFP = (image: StaticImageData, index: number)=>{
   originalImage.onload = function (){
 
     const ctx = canvas.getContext('2d');
-    canvas.width = 2000;
-    canvas.height = 2000;
-    ctx?.drawImage(originalImage, 470, 100, 1000, 1000, 0, 0, 2000, 2000); 
+    canvas.width = 1000;
+    canvas.height = 1000;
+    ctx?.drawImage(originalImage, 470, 100, 2000, 2000, 0, 0, 2000, 2000); 
   
     const imageURL = canvas.toDataURL("image/jpeg", 0.9);
     
