@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div style={{height: '100%'}}>
       <Navbar />
       <div className={style.container}>
         <WalletDisplay />

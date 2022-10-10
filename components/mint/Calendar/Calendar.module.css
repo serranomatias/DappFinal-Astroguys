@@ -7,14 +7,14 @@
   z-index: 5;
 }
 
-.calendarContainer::after{
+/* .calendarContainer::after{
   content: '';
   position: absolute;
   right: 0;
   width: 120px;
   height: 133px;
   background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #0f1318);
-}
+} */
 
 .calendarItem {
   font-weight: 400;

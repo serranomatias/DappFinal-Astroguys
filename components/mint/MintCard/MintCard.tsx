@@ -146,10 +146,10 @@ const MintCard = () => {
                                 contractAddress={myNftDropContractAddress}
                                 action={async () => {toast.error("Mint is not active yet")}}
                                 // If the function fails, we can do something here.
-                                onError={(error) => toast.error(error?.message)}
+                                onError={(error: any) => toast.error(error?.message)}
                                 accentColor="#240c43"
                                 colorMode="dark"
-                                onSuccess={(result) =>
+                                onSuccess={() =>
                                     {toast((t) => (
                                         // `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
                                         // }!`

@@ -14,6 +14,7 @@
     padding-left: 0;
     height: 90px;
     width: 70%;
+    min-width: 700px;
     background: #13161B;
     border-radius: 50px;
     box-shadow: 1px 1px 5px rgba(148, 55, 255, 0.1)
@@ -38,4 +39,8 @@
 
 .info span{
     color: #B289F5;
+}
+
+@media (max-width: 600px){
+
 }

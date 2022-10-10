@@ -4,7 +4,6 @@ import Calendar from '../components/mint/Calendar/Calendar'
 import MintCard from '../components/mint/MintCard/MintCard'
 import style from '../styles/pages/mint.module.css'
 import InfoCard from '../components/mint/infoCard/InfoCard'
-import { useCallback } from "react";
 import Head from 'next/head'
 
 const Home: NextPage = () => {
