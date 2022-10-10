@@ -11,7 +11,15 @@ const days: daysType = [
   [ 5, 'Wed' ],
   [ 6, 'Thu' ],
   [ 7, 'Fri' ],
-  [ 8, 'Sun' ],
+  [ 8, 'Sat' ],
+  [ 9, 'Sun' ],
+  [ 10, 'Mon' ],
+  [ 11, 'Tue' ],
+  [ 12, 'Wed' ],
+  [ 13, 'Thu' ],
+  [ 14, 'Fri' ],
+  [ 15, 'Sat' ],
+  [ 16, 'Sun' ],
  ]
 
 

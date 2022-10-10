@@ -2,8 +2,9 @@
   
   display: flex;
   margin: 30px 0;
-  margin-left: calc(50% - calc(55.5px * 9));
+  margin-left: calc(50% - calc(55.5px * 15.5));
   overflow: hidden;
+  z-index: 5;
 }
 
 .calendarContainer::after{
@@ -34,7 +35,7 @@
   opacity: 0.3;
 }
 
-.calendarItem:nth-child(5) {
+.calendarItem:nth-child(8) {
   background: linear-gradient(180deg, #9233FF 0%, #A35EF9 100%);
   opacity: 1;
 }

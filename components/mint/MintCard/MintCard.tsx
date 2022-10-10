@@ -120,8 +120,10 @@ const MintCard = () => {
                     </div>
                     <div className={style.priceContainer}>
                         <p>Price</p>
-                        {activeClaimCondition?.price.eq(0)
-                            ? " (Not yet)"
+                        {isSoldOut 
+                            ? " 43 MATIC"
+                            : !time ?
+                            " 43 MATIC"
                             : activeClaimCondition?.currencyMetadata.displayValue
                                 ? ` ${parseInt(formatUnits(
                                     priceToMint,
