@@ -11,6 +11,8 @@ import {
     Web3Button,
     useContract,
     useNFT,
+    useNFTs,
+    useAddress,
     ThirdwebNftMedia,
 } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
@@ -25,8 +27,10 @@ type DateType = {
 }
 
 const MintCard = () => {
+    const address = useAddress();
     const { contract: nftDrop } = useContract(myNftDropContractAddress);
-    const { data: nft, isLoading } = useNFT(nftDrop, 4);
+    // const { data: nft, isLoading } = useNFT(nftDrop, nft.map(nft));
+    const { data: nfts, isLoading: isReadingNfts } = useNFTs(nftDrop);
 
     const [time, setTime] = useState<Boolean>(false)
 
@@ -145,6 +149,43 @@ const MintCard = () => {
                                 onError={(error) => toast.error(error?.message)}
                                 accentColor="#240c43"
                                 colorMode="dark"
+                                onSuccess={(result) =>
+                                    {toast((t) => (
+                                        // `Successfully minted ${result.length} NFT${result.length > 1 ? "s" : ""
+                                        // }!`
+                                        <div>
+                                            {!isReadingNfts && nfts ? (
+                                                <div className={style.succesfulMint}>
+                                                    <h3>Congratulations!</h3>
+                                                    <span>Successfully minted!🚀</span>
+                                                    {/* <span>{nfts.metadata.name}<br></br></span> */}
+                                                    <a href="https://opensea.io/collection/astroguysproject" target="_blank" rel="noreferrer"><button>
+                                                        See on OpenSea
+                                                    </button></a>
+                                                    {nfts
+                                                    .filter(
+                                                          (nft) =>
+                                                            nft.owner === address
+                                                        )
+                                                        .map((nft) => (
+                                                        <div key={nft.metadata.id.toString()}>
+                                                        <h1>{nft.metadata.name}</h1>
+                                                         <ThirdwebNftMedia
+                                                           key={nft.owner}
+                                                           metadata={nft.metadata}
+                                                           height={"200px"}
+                                                         />
+                                                        </div>
+                                                        ))}
+                                                    {/* <ThirdwebNftMedia metadata={nft.metadata} width={"300px"} /> */}
+                                                </div>
+                                            ) : (
+                                                <p>Loading...</p>
+                                            )}
+                
+                                        </div>
+                                    ))}
+                                }
                             >
                                 {`SOLD OUT`}
                             </Web3Button>
