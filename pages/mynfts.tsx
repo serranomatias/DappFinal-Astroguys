@@ -26,7 +26,7 @@ const handlePFP = (image: StaticImageData, index: number)=>{
     canvas.height = 1000;
     ctx?.drawImage(originalImage, 470, 100, 2000, 2000, 0, 0, 2000, 2000); 
   
-    const imageURL = canvas.toDataURL("image/jpeg", 0.9);
+    const imageURL = canvas.toDataURL("image/jpg", 0.9);
     
     const el = document.createElement("a");
     el.setAttribute("href", imageURL);
