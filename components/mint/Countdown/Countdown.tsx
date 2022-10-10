@@ -13,7 +13,7 @@ const Countdown = () => {
 
     const [time, setTime] = useState<DateType>()
 
-    const target = new Date("Oct 7, 2022 21:00:00 UTC").getTime()
+    const target = new Date("Oct 10, 2022 21:00:00 UTC").getTime()
 
     useEffect(() => {
 
