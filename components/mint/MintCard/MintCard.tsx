@@ -125,9 +125,9 @@ const MintCard = () => {
                     <div className={style.priceContainer}>
                         <p>Price</p>
                         {isSoldOut 
-                            ? " 43 MATIC"
+                            ? " 46 MATIC"
                             : !time ?
-                            " 43 MATIC"
+                            " 46 MATIC"
                             : activeClaimCondition?.currencyMetadata.displayValue
                                 ? ` ${parseInt(formatUnits(
                                     priceToMint,
