@@ -150,7 +150,7 @@ const MintCard = () => {
                                 accentColor="#240c43"
                                 colorMode="dark"
                                 >
-                                     {`MINT NOT ACTIVE YET`}
+                                     {`SOLD OUT`}
                             </Web3Button>
                         </div>
                         ) : !time ? (

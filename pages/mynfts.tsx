@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import style from '../styles/pages/mynfts.module.css'
 import img1 from '../public/images/astro1.png'
@@ -7,9 +7,25 @@ import img2 from '../public/images/astro2.png'
 import img3 from '../public/images/astro3.png'
 import img4 from '../public/images/astro4.png'
 import img5 from '../public/images/astro5.png'
+import {
+  useClaimedNFTSupply,
+  useContractMetadata,
+  useUnclaimedNFTSupply,
+  useActiveClaimCondition,
+  Web3Button,
+  useContract,
+  useNFT,
+  useNFTs,
+  useAddress,
+  ThirdwebNftMedia,
+} from "@thirdweb-dev/react";
 
+const myNftDropContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608";
 const mynfts: NextPage = () => {
 
+  const address = useAddress();
+  const { contract: nftDrop } = useContract(myNftDropContractAddress);
+  const { data: nfts, isLoading: isReadingNfts } = useNFTs(nftDrop);
 const NFTsArray = [img1, img2, img3, img4, img5]
 
 const handlePFP = (image: StaticImageData, index: number)=>{
