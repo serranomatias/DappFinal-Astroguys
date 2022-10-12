@@ -34,7 +34,7 @@ const MintCard = () => {
 
     const [time, setTime] = useState<Boolean>(false)
 
-    const target = new Date("Oct 7, 2022 21:00:00 UTC").getTime()
+    const target = new Date("Oct 12, 2022 21:00:00 UTC").getTime()
 
     useEffect(() => {
 
