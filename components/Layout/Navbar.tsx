@@ -31,9 +31,7 @@ const Navbar = () => {
 
         <div className={style.iconContainer}>
             <div className={style.icon}>
-              <Link href='/mynfts'>
               <p className={style.soon}>My NFTs</p>
-              </Link>
             </div>
         </div>
 
