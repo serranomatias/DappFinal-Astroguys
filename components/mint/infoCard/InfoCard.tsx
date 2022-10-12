@@ -30,6 +30,7 @@ const InfoCard = (props: Props) => {
             📅 ✦ During the first month of Genesis Drop release, a certain amount of nft will be released per day depending on the week, except for weekends, which will be used to prepare for the next release.<br></br>
 ⠀⠀⠀⠀⠀💸 ✦ The prices will gradually increase to give a benefit to the dreamers who strongly trust in the project.
             </p>
+            <a href="https://opensea.io/es/collection/astroguysproject" target="_blank" rel="noreferrer"><button className={style.openseaButton}>VIEW ON OPENSEA</button></a>
         </div>
         <div>
             <Countdown/>

@@ -85,3 +85,16 @@
       transform: rotate(360deg);
     }
   }
+  .openseaButton {
+    padding: 10px;
+    border: 2px solid #8C33F9;
+    background: #9e53fa;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 25px;
+    cursor: pointer;
+  }
+  .openseaButton:hover {
+    border: 2px solid #9449f1;
+    background: #a967f9;
+  }
