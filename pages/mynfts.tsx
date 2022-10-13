@@ -24,9 +24,9 @@ import {
 
 const myContractAddress = "0x3163B695dDc10Fa29fdf2ec147F5bb104C3c2608"
 const mynfts: NextPage = () => {
-  const address = useAddress();
-  const { contract } = useContract(myContractAddress);
-  const { data: nfts, isLoading: isReadingNfts } = useNFTs(contract);
+  // const address = useAddress();
+  // const { contract } = useContract(myContractAddress);
+  // const { data: nfts, isLoading: isReadingNfts } = useNFTs(contract);
 
   const NFTsArray = [img1, img2, img3, img4, img5]
 
@@ -81,7 +81,7 @@ const mynfts: NextPage = () => {
         ))}
       </div>
       <div className={style.container}>
-
+{/* 
 
         {nfts && nfts?.length > 0 && (
           <div className={style.container}>
@@ -111,7 +111,7 @@ const mynfts: NextPage = () => {
                 </div>
               ))}
           </div>
-        )}
+        )} */}
       </div>
     </>
   )
