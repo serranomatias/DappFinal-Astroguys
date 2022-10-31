@@ -82,9 +82,9 @@ const MintCard = () => {
     const priceToMint = price.mul(quantity);
 
     // Loading state while we fetch the metadata
-    // if (!nftDrop || !contractMetadata) {
-    //     return <div className={style.cardContainer}></div>;
-    // }
+    if (!nftDrop || !contractMetadata) {
+        return <div className={style.cardContainer}></div>;
+    }
     // Get your NFT Collection using it's contract address
 
     // Load (and cache) the metadata for the NFT with token ID 0

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@metamask/providers": "^9.1.0",
-    "@thirdweb-dev/react": "^3.1.2",
+    "@thirdweb-dev/react": "^3.4.4",
     "@thirdweb-dev/sdk": "^3.1.2",
     "ethers": "^5.7.1",
     "next": "^12.3.0",
